@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nagrik Setu · Road Grievance Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#080c19;--ink2:#0f1529;--ink3:#171e38;--gold:#c9a45c;--gold2:#ecd29b;--ivory:#f4eddc;--mut:#98a0b8;--line:rgba(201,164,92,.22);--ok:#7fc8a0;--bad:#e58a8a;--warn:#e6c26b}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--ivory);font:400 16px/1.65 Manrope,system-ui,sans-serif;min-height:100vh;background-image:radial-gradient(900px 500px at 85% -10%,rgba(201,164,92,.12),transparent),radial-gradient(700px 500px at -10% 40%,rgba(60,80,170,.14),transparent)}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:.01em;line-height:1.1}
+a{color:var(--gold2)}button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;font-family:'Cormorant Garamond';font-size:1.7rem;font-weight:600;cursor:pointer}
+.brand i{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-style:normal;color:var(--gold);font-size:1rem}
+.btn{border:1px solid var(--gold);background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1305;padding:12px 26px;border-radius:2px;font-weight:600;cursor:pointer;transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.08)}.btn:active{transform:translateY(1px)}.btn[disabled]{opacity:.5;cursor:wait}
+.btn.ghost{background:transparent;color:var(--gold2)}.btn.sm{padding:7px 16px;font-size:.88rem}.btn.bad{background:transparent;border-color:var(--bad);color:var(--bad)}
+.hero{padding:110px 0 90px;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem)}.hero h1 em{color:var(--gold2)}
+.hero p.lead{font-size:1.15rem;color:#cfd3e2;max-width:52ch;margin:26px 0 38px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.seal{aspect-ratio:1;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;position:relative;animation:glow 1.6s ease-out both;text-align:center}
+.seal:before,.seal:after{content:"";position:absolute;inset:9%;border:1px solid var(--line);border-radius:50%}.seal:after{inset:19%;border-color:var(--gold)}
+.seal b{font-family:'Cormorant Garamond';font-size:3.6rem;color:var(--gold2);line-height:1}
+.seal small{display:block;font:500 .8rem Manrope;color:var(--mut);margin-top:8px}
+@keyframes glow{from{opacity:0;transform:scale(.94);box-shadow:0 0 0 rgba(201,164,92,0)}to{opacity:1;box-shadow:0 0 90px rgba(201,164,92,.14)}}
+.gold-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin:70px 0;counter-reset:s}
+.steps div{padding:26px 24px;border-left:1px solid var(--line);counter-increment:s}
+.steps div:before{content:counter(s);font:600 2.4rem 'Cormorant Garamond';color:var(--gold)}
+.steps h3{font-size:1.4rem;margin:6px 0}.steps p{color:var(--mut);font-size:.95rem}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:90px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--line);padding:28px;border-radius:3px;backdrop-filter:blur(8px)}
+.card h3{font-size:1.5rem;margin-bottom:8px}.card p{color:var(--mut);font-size:.96rem}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-size:.85rem}
+.page{padding:44px 0 90px}.page h2{font-size:2.6rem;margin-bottom:6px}.sub{color:var(--mut);margin-bottom:30px}
+.grid2{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
+label{display:block;font-size:.88rem;color:var(--gold2);margin:16px 0 6px}
+input,textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:2px;padding:12px 14px}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);outline:0}textarea{min-height:100px;resize:vertical}
+.drop{border:1px dashed var(--gold);padding:26px;text-align:center;color:var(--mut);cursor:pointer;border-radius:2px;margin-top:6px;transition:background .2s}.drop.on{background:rgba(201,164,92,.1)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.chip{font-size:.78rem;padding:3px 10px;border:1px solid var(--line);border-radius:20px;color:var(--mut)}
+.st{font-size:.8rem;padding:3px 12px;border-radius:20px;border:1px solid;white-space:nowrap;display:inline-block}
+.st.pending_review,.st.submitted{color:var(--warn)}.st.verified,.st.in_repair,.st.repair_submitted{color:#8fb7ff}.st.closed{color:var(--ok)}.st.rejected,.st.withdrawn{color:var(--bad)}.st.flagged{color:#f0a070}
+.row{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}.row:hover h3{color:var(--gold2)}
+.row h3{font-size:1.3rem}.row small{color:var(--mut)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}.tabs button{background:0;border:1px solid var(--line);padding:6px 16px;border-radius:20px;color:var(--mut);cursor:pointer}.tabs button.on{border-color:var(--gold);color:var(--gold2);background:rgba(201,164,92,.08)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:28px}.stats .card{padding:18px}.stats b{font:600 2.4rem 'Cormorant Garamond';color:var(--gold2);display:block;line-height:1}
+.modal{position:fixed;inset:0;background:rgba(4,6,14,.82);display:grid;place-items:center;padding:20px;z-index:9;overflow:auto;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{background:var(--ink2);border:1px solid var(--gold);max-width:760px;width:100%;padding:34px;max-height:92vh;overflow:auto;position:relative;box-shadow:0 30px 90px #000}.sheet.sm{max-width:440px}
+.x{position:absolute;right:16px;top:12px;background:0;border:0;font-size:1.6rem;color:var(--mut);cursor:pointer}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:10px 0}.thumbs a{display:block;border:1px solid var(--line);aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--ink3);text-decoration:none;font-size:.8rem;color:var(--mut)}
+.thumbs img{width:100%;height:100%;object-fit:cover}.thumbs span{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);padding:2px 6px;font-size:.72rem}
+.tl{border-left:1px solid var(--gold);margin:14px 0 0 6px;padding-left:18px}.tl div{margin-bottom:12px;font-size:.92rem;position:relative}.tl div:before{content:"";position:absolute;left:-24px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--gold)}.tl small{color:var(--mut);display:block}
+.bar{height:6px;background:var(--ink3);border-radius:3px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:var(--ink3);border:1px solid var(--gold);padding:12px 24px;z-index:20}.toast.bad{border-color:var(--bad)}
+.err{color:var(--bad);font-size:.9rem;margin-top:12px;min-height:1em}.note{font-size:.82rem;color:var(--mut);margin-top:14px}.check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:.85rem;color:var(--mut)}.check input{width:auto;margin-top:5px}
+@media(max-width:860px){.hero,.grid2,.pillars{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.seal{max-width:260px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="wrap"><nav><div class="brand" onclick="go('/')"><i>न</i>Nagrik Setu</div><div id="nav"></div></nav><main id="app"></main>
+<footer>Road grievance portal · Personal data is processed under the Digital Personal Data Protection Act, 2023. Aadhaar numbers are never stored.</footer></div><div id="m"></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const L={submitted:'Submitted',pending_review:'Under review',flagged:'Manual review',verified:'Verified',rejected:'Rejected',in_repair:'Repair underway',repair_submitted:'Repair proof filed',closed:'Closed',withdrawn:'Withdrawn'};
+let me=null;
+async function api(p,o={}){const h={'X-Requested-With':'portal'};let b=o.body;if(b&&!(b instanceof FormData)){h['Content-Type']='application/json';b=JSON.stringify(b)}
+ const r=await fetch('/api'+p,{method:o.method||'GET',headers:h,body:b,credentials:'same-origin'});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'Something went wrong');return j}
+function toast(t,e){const d=document.createElement('div');d.className='toast'+(e?' bad':'');d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),3400)}
+const modal=h=>{$('#m').innerHTML=`<div class="modal" onclick="if(event.target===this)closeM()"><div class="sheet ${h.sm?'sm':''}" role="dialog" aria-modal="true"><button class="x" onclick="closeM()" aria-label="Close">×</button>${h.html}</div></div>`};const closeM=()=>$('#m').innerHTML='';
+const go=p=>{location.hash=p};const fd=t=>new Date(t.replace(' ','T')+'Z').toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+async function boot(){try{me=await api('/me')}catch{me=null}route()}
+function route(){const p=location.hash.slice(1)||'/';$('#nav').innerHTML=me?`<span style="color:var(--mut);margin-right:16px">${esc(me.name)}</span><button class="btn ghost sm" onclick="logout()">Sign out</button>`:`<button class="btn ghost sm" onclick="go('/officer')">Officer console</button> <button class="btn sm" onclick="authModal()">Citizen sign in</button>`;
+ const fail=e=>{$('#app').innerHTML=`<div class="page"><h2>Something went wrong</h2><p class="sub">${esc(e.message)}</p><button class="btn" onclick="route()">Try again</button></div>`};
+ if(me&&me.role==='admin')return admin().catch(fail);if(me)return citizen().catch(fail);if(p==='/officer')return officerLogin();landing()}
+addEventListener('hashchange',route);
+async function logout(){await api('/logout',{method:'POST'});me=null;go('/');route()}
+function landing(){$('#app').innerHTML=`<section class="hero"><div><h1>Every road restored, <em>on the record.</em></h1><p class="lead">Report a damaged road with photographs. Verified officers inspect it, repair it, and close it only after photographic proof is filed, so the work is visible to you.</p><div class="cta"><button class="btn" onclick="authModal('register')">File a report</button><button class="btn ghost" onclick="authModal()">Track my reports</button></div></div><div class="seal"><div><b>सत्यमेव<br>जयते</b><small>Verified · Repaired · Proven</small></div></div></section><hr class="gold-rule">
+<section class="steps"><div><h3>Verify once</h3><p>Confirm your identity with an Aadhaar OTP. We keep only the last four digits.</p></div><div><h3>Report with photos</h3><p>Add the location, pictures or a PDF, and an optional note.</p></div><div><h3>Officer review</h3><p>Photos are screened for AI generation and duplicates, then checked by a person.</p></div><div><h3>Repair proof</h3><p>A report closes only when the repair photographs are attached.</p></div></section>
+<section class="pillars"><div class="card"><h3>Encrypted by default</h3><p>Your details and every uploaded file are encrypted with AES-256-GCM before they touch storage.</p></div><div class="card"><h3>Genuine reports first</h3><p>AI-image detection and duplicate checks keep officers focused on real damage.</p></div><div class="card"><h3>Your data, your right</h3><p>Edit or withdraw a report, and erase your account whenever you choose.</p></div></section>`}
+function authModal(tab='login'){const reg=tab==='register';modal({sm:1,html:`<h2 style="font-size:2rem">${reg?'Create your account':'Welcome back'}</h2><form id="af" onsubmit="authGo(event,${reg})">${reg?'<label>Full name</label><input name="name" required autocomplete="name"><label>Mobile number</label><input name="phone" required pattern="[6-9][0-9]{9}" inputmode="numeric" autocomplete="tel">':''}<label>Email</label><input name="email" type="email" required autocomplete="email"><label>Password</label><input name="password" type="password" required minlength="${reg?10:1}" autocomplete="${reg?'new-password':'current-password'}">${reg?'<label class="check"><input type="checkbox" name="consent" required>I consent to my personal data being processed to handle my reports, as described in the privacy notice.</label>':''}<div class="err" id="er"></div><br><button class="btn" style="width:100%">${reg?'Create account':'Sign in'}</button></form><p class="note">${reg?'Already registered? <a href="#" onclick="authModal();return false">Sign in</a>':'New here? <a href="#" onclick="authModal(\'register\');return false">Create an account</a>'}</p>`})}
+async function authGo(e,reg){e.preventDefault();const f=Object.fromEntries(new FormData(e.target));if(reg)f.consent=!!f.consent;try{await api(reg?'/register':'/login',{method:'POST',body:f});closeM();me=await api('/me');route()}catch(x){$('#er').textContent=x.message}}
+function officerLogin(){$('#app').innerHTML=`<div class="page" style="max-width:440px"><h2>Officer console</h2><p class="sub">Authorised government officials only.</p><form class="card" onsubmit="offGo(event)"><label>Official email</label><input name="email" type="email" required><label>Password</label><input name="password" type="password" required><div class="err" id="er"></div><br><button class="btn" style="width:100%">Sign in</button></form></div>`}
+async function offGo(e){e.preventDefault();try{await api('/admin/login',{method:'POST',body:Object.fromEntries(new FormData(e.target))});me=await api('/me');route()}catch(x){$('#er').textContent=x.message}}
+/* ---------- citizen ---------- */
+async function citizen(){const list=await api('/complaints');
+ $('#app').innerHTML=`<div class="page"><h2>Your reports</h2><p class="sub">${me.verified?'Identity verified · '+esc(me.aadhaar):'Verify your identity to file reports.'}</p>
+ <div class="grid2"><div class="card">${me.verified?newForm():verifyCard()}</div><div>${list.length?list.map(c=>`<div class="row" onclick="detail(${c.id})"><div><h3>${esc(c.title)}</h3><small>${esc(c.location)} · ${fd(c.created_at)}</small></div><span class="st ${c.status}">${L[c.status]}</span></div>`).join(''):'<p class="sub">No reports yet. Your first report will appear here with its progress.</p>'}
+ <p class="note" style="margin-top:30px"><a href="#" onclick="erase();return false">Erase my account and personal data</a></p></div></div></div>`;bindDrop()}
+function verifyCard(){return`<h3>Verify with Aadhaar</h3><p class="sub" style="margin:6px 0 0">Your number is encrypted in this browser before it is sent, used for one OTP check, and never stored. We keep a one-way reference and the last four digits.</p><form onsubmit="aStart(event)"><label>Aadhaar number</label><input id="an" inputmode="numeric" pattern="[2-9][0-9]{11}" maxlength="12" required autocomplete="off"><div class="err" id="er"></div><br><button class="btn">Send OTP</button></form><div id="otp"></div>`}
+async function aStart(e){e.preventDefault();$('#er').textContent='';try{if(!crypto.subtle)throw Error('Open this site over HTTPS to continue.');const {pem}=await api('/crypto/pubkey');
+ const der=Uint8Array.from(atob(pem.replace(/-----[^-]+-----|\s/g,'')),c=>c.charCodeAt(0));const k=await crypto.subtle.importKey('spki',der,{name:'RSA-OAEP',hash:'SHA-256'},false,['encrypt']);
+ const ct=await crypto.subtle.encrypt({name:'RSA-OAEP'},k,new TextEncoder().encode($('#an').value));$('#an').value='';
+ const r=await api('/aadhaar/start',{method:'POST',body:{enc:btoa(String.fromCharCode(...new Uint8Array(ct)))}});
+ $('#otp').innerHTML=`<form onsubmit="aVerify(event,'${r.txn}')"><label>Enter the OTP sent to your Aadhaar-linked mobile</label><input id="ot" inputmode="numeric" maxlength="6" required>${r.hint?`<p class="note">${esc(r.hint)}</p>`:''}<br><button class="btn">Verify</button></form>`}catch(x){$('#er').textContent=x.message}}
+async function aVerify(e,t){e.preventDefault();try{await api('/aadhaar/verify',{method:'POST',body:{txn:t,otp:$('#ot').value}});me=await api('/me');toast('Identity verified');citizen()}catch(x){toast(x.message,1)}}
+function newForm(){return`<h3>New report</h3><form onsubmit="submitC(event)"><label>What is wrong?</label><input name="title" required maxlength="140" placeholder="Deep pothole near the market"><label>Road and area</label><input name="location" required maxlength="240"><input name="lat" type="hidden"><input name="lng" type="hidden"><button type="button" class="btn ghost sm" style="margin-top:8px" onclick="geo(this)">Use my current position</button><label>Details (optional)</label><textarea name="description" maxlength="2000"></textarea>
+ <label>Photos or PDF (up to 6, 10 MB each)</label><div class="drop" id="dz" tabindex="0">Drop files here or click to choose</div><input type="file" id="fi" multiple accept="image/jpeg,image/png,image/webp,application/pdf" hidden><div class="chips" id="fl"></div><div class="err" id="er"></div><br><button class="btn" id="sb">Submit report</button></form>`}
+function geo(b){navigator.geolocation?.getCurrentPosition(p=>{const f=b.closest('form');f.lat.value=p.coords.latitude;f.lng.value=p.coords.longitude;b.textContent='Position captured'},()=>toast('Location permission was denied',1))}
+let files=[];function bindDrop(){const z=$('#dz');if(!z)return;files=[];const fi=$('#fi'),add=l=>{files=[...files,...l].slice(0,6);$('#fl').innerHTML=files.map(f=>`<span class="chip">${esc(f.name)}</span>`).join('')};
+ z.onclick=()=>fi.click();z.onkeydown=e=>e.key==='Enter'&&fi.click();fi.onchange=()=>add(fi.files);z.ondragover=e=>{e.preventDefault();z.classList.add('on')};z.ondragleave=()=>z.classList.remove('on');z.ondrop=e=>{e.preventDefault();z.classList.remove('on');add(e.dataTransfer.files)}}
+async function submitC(e){e.preventDefault();const f=new FormData(e.target);files.forEach(x=>f.append('files',x));$('#sb').disabled=true;try{await api('/complaints',{method:'POST',body:f});toast('Report submitted');citizen()}catch(x){$('#er').textContent=x.message;$('#sb').disabled=false}}
+const thumbs=(fs,k)=>{const a=fs.filter(f=>f.kind===k);return a.length?`<div class="thumbs">${a.map(f=>`<a href="/api/files/${f.id}" target="_blank" rel="noopener">${f.mime==='application/pdf'?'<div style="padding:40px 10px;text-align:center">PDF</div>':`<img loading="lazy" src="/api/files/${f.id}" alt="">`}<span>${k==='evidence'&&f.ai_score!=null?'AI '+Math.round(f.ai_score*100)+'% · ':''}${esc(f.name)}</span></a>`).join('')}</div>`:'<p class="note">None yet</p>'};
+const tl=e=>`<div class="tl">${e.map(x=>`<div><b>${esc(x.action)}</b>${x.note?' — '+esc(x.note):''}<small>${esc(x.actor)} · ${fd(x.ts)}</small></div>`).join('')}</div>`;
+async function detail(id){const c=await api('/complaints/'+id),can=['submitted','pending_review','flagged'].includes(c.status);
+ modal({html:`<span class="st ${c.status}">${L[c.status]}</span><h2 style="margin:12px 0 4px">${esc(c.title)}</h2><p class="sub" style="margin-bottom:12px">${esc(c.location)}</p><p>${esc(c.description)||'<span class="note">No description added.</span>'}</p>${c.review_note?`<p class="note">Officer note: ${esc(c.review_note)}</p>`:''}<h3 style="margin-top:22px">Your evidence</h3>${thumbs(c.files,'evidence')}<h3>Repair proof</h3>${thumbs(c.files,'repair')}<h3 style="margin-top:18px">Progress</h3>${tl(c.events)}${can?`<div style="display:flex;gap:10px;margin-top:22px"><button class="btn ghost sm" onclick='editC(${JSON.stringify({id:c.id,t:c.title,l:c.location,d:c.description}).replace(/'/g,"&#39;")})'>Edit</button><button class="btn bad sm" onclick="wd(${c.id})">Withdraw</button></div>`:''}`})}
+function editC(c){modal({sm:1,html:`<h2 style="font-size:1.8rem">Edit report</h2><form onsubmit="saveC(event,${c.id})"><label>Title</label><input name="title" value="${esc(c.t)}" required><label>Location</label><input name="location" value="${esc(c.l)}" required><label>Details</label><textarea name="description">${esc(c.d)}</textarea><br><button class="btn">Save changes</button></form>`})}
+async function saveC(e,id){e.preventDefault();try{await api('/complaints/'+id,{method:'PUT',body:Object.fromEntries(new FormData(e.target))});closeM();toast('Changes saved');citizen()}catch(x){toast(x.message,1)}}
+async function wd(id){if(!confirm('Withdraw this report?'))return;try{await api('/complaints/'+id,{method:'DELETE'});closeM();toast('Report withdrawn');citizen()}catch(x){toast(x.message,1)}}
+async function erase(){if(!confirm('This permanently erases your personal data. Your reports stay in anonymised form. Continue?'))return;await api('/me',{method:'DELETE'});me=null;go('/');route()}
+/* ---------- officer ---------- */
+let flt='all';
+async function admin(){const [st,list]=await Promise.all([api('/admin/stats'),api('/admin/complaints?status='+flt)]);const tot=Object.values(st).reduce((a,b)=>a+b,0);
+ $('#app').innerHTML=`<div class="page"><h2>Verification desk</h2><p class="sub">Signed in as ${esc(me.name)} · ${esc(me.level)}</p>
+ <div class="stats"><div class="card"><b>${tot}</b>All reports</div><div class="card"><b>${st.flagged||0}</b>Flagged by AI</div><div class="card"><b>${st.pending_review||0}</b>Awaiting review</div><div class="card"><b>${(st.in_repair||0)+(st.repair_submitted||0)}</b>In repair</div><div class="card"><b>${st.closed||0}</b>Closed</div></div>
+ <div class="tabs">${['all','flagged','pending_review','verified','in_repair','repair_submitted','closed','rejected'].map(s=>`<button class="${s===flt?'on':''}" onclick="flt='${s}';admin()">${s==='all'?'All':L[s]}</button>`).join('')}${me.level==='superadmin'?'<button onclick="officers()">Manage officers</button>':''}</div>
+ ${list.length?list.map(c=>`<div class="row" onclick="adetail(${c.id})"><div><h3>${esc(c.title)}</h3><small>${esc(c.location)} · ${esc(c.citizen.name)} · AI risk ${Math.round(c.ai_risk*100)}%</small></div><span class="st ${c.status}">${L[c.status]}</span></div>`).join(''):'<p class="sub">Nothing in this queue.</p>'}</div>`}
+async function adetail(id){const c=await api('/admin/complaints/'+id),col=c.ai_risk>=.7?'var(--bad)':c.ai_risk>=.4?'var(--warn)':'var(--ok)';
+ const acts={flagged:'rv',pending_review:'rv',verified:'start',in_repair:'rep',repair_submitted:'close'}[c.status];
+ modal({html:`<span class="st ${c.status}">${L[c.status]}</span><h2 style="margin:12px 0 4px">${esc(c.title)}</h2><p class="sub" style="margin-bottom:10px">${esc(c.location)}${c.lat?` · <a target="_blank" rel="noopener" href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lng}#map=17/${c.lat}/${c.lng}">map</a>`:''}</p>
+ <p class="note" style="margin:0 0 12px">${esc(c.citizen.name)} · ${esc(c.citizen.phone)} · Aadhaar ${esc(c.citizen.aadhaar)} ${c.citizen.verified?'(verified)':''}</p><p>${esc(c.description)||'<span class="note">No description.</span>'}</p>
+ <h3 style="margin-top:20px">AI-image screening</h3><div class="bar"><i style="width:${c.ai_risk*100}%;background:${col}"></i></div><p class="note">Overall risk ${Math.round(c.ai_risk*100)}%. ${esc(c.files.filter(f=>f.kind==='evidence').map(f=>f.ai_notes).filter(Boolean).join(' | '))} Automated scores assist; they never decide.</p>
+ <h3>Evidence</h3>${thumbs(c.files,'evidence')}<h3>Repair proof</h3>${thumbs(c.files,'repair')}<h3 style="margin-top:16px">History</h3>${tl(c.events)}
+ <form id="af" style="margin-top:20px" onsubmit="return false"><label>Note</label><input name="note" placeholder="Visible in the report history">${acts==='rep'?'<label>Repair photos</label><input type="file" name="files" multiple accept="image/*,application/pdf">':''}<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">${
+ acts==='rv'?`<button class="btn sm" onclick="act(${c.id},'review','verified')">Verify as genuine</button><button class="btn ghost sm" onclick="act(${c.id},'review','flagged')">Keep flagged</button><button class="btn bad sm" onclick="act(${c.id},'review','rejected')">Reject as spam</button>`:acts==='start'?`<button class="btn sm" onclick="act(${c.id},'start')">Send for repair</button>`:acts==='rep'?`<button class="btn sm" onclick="act(${c.id},'repair')">Submit repair proof</button>`:acts==='close'?`<button class="btn sm" onclick="act(${c.id},'close')">Close report</button>`:''}${me.level==='superadmin'?`<button class="btn bad sm" onclick="act(${c.id},'del')">Delete</button>`:''}</div></form>`})}
+async function act(id,a,d){const fm=new FormData($('#af'));try{if(a==='del'){if(!confirm('Delete this report?'))return;await api('/admin/complaints/'+id,{method:'DELETE'})}
+ else if(a==='repair')await api(`/admin/complaints/${id}/repair`,{method:'POST',body:fm});else await api(`/admin/complaints/${id}/${a}`,{method:'POST',body:{note:fm.get('note'),decision:d}});closeM();toast('Done');admin()}catch(x){toast(x.message,1)}}
+async function officers(){const l=await api('/admin/officers');modal({sm:1,html:`<h2 style="font-size:1.8rem">Officers</h2>${l.map(o=>`<div class="row" style="cursor:default"><div>${esc(o.name)}<br><small>${esc(o.email)} · ${o.role}</small></div>${o.role!=='superadmin'?`<button class="btn bad sm" onclick="rmO(${o.id})">Remove</button>`:''}</div>`).join('')}<form onsubmit="addO(event)"><label>Name</label><input name="name" required><label>Email</label><input name="email" type="email" required><label>Password (12+ characters)</label><input name="password" type="password" minlength="12" required><br><button class="btn sm">Add officer</button></form>`})}
+async function addO(e){e.preventDefault();try{await api('/admin/officers',{method:'POST',body:Object.fromEntries(new FormData(e.target))});officers()}catch(x){toast(x.message,1)}}
+async function rmO(i){await api('/admin/officers/'+i,{method:'DELETE'});officers()}
+boot();
+</script></body></html>
